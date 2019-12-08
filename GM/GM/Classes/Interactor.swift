@@ -19,4 +19,20 @@ class Interactor {
         
         print("commits... \(commits)")
     }
+    
+    func getNumberOfCommits() -> Int {
+        return self.commits.count
+    }
+    
+    func author(index: Int) -> String {
+        return self.commits[index].author
+    }
+    
+    func hash(index: Int) -> String {
+        return self.commits[index].hash
+    }
+    
+    func message(index: Int) -> String {
+        return self.commits[index].message
+    }
 }
