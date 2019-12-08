@@ -9,6 +9,8 @@
 import UIKit
 
 class CommitsTableViewController: UITableViewController {
+    
+    let presenter = Presenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()

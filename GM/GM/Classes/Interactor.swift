@@ -9,5 +9,14 @@
 import Foundation
 
 class Interactor {
+    private var commits = [Commit]()
     
+    func getCommits() {
+        self.commits.append(Commit(author: "John", hash: "kjhdsakjshd", message: "this is a commit(1)"))
+        self.commits.append(Commit(author: "Harry", hash: "sdfawewe", message: "this is a commit(2)"))
+        self.commits.append(Commit(author: "Shiela", hash: "afsdfs", message: "this is a commit(3)"))
+        self.commits.append(Commit(author: "Becky", hash: "sdfafsdfsdfsdf", message: "this is a commit(4)"))
+        
+        print("commits... \(commits)")
+    }
 }

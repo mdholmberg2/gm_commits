@@ -9,5 +9,10 @@
 import Foundation
 
 class Presenter {
+    private let interactor = Interactor()
+    
+    init() {
+        interactor.getCommits()
+    }
     
 }
