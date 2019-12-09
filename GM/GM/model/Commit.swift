@@ -9,7 +9,7 @@
 import Foundation
 
 struct Commit: Codable {
-    var author: String
-    var hash: String
+    var author: Author
+    var sha: String
     var message: String
 }

@@ -14,6 +14,9 @@
 		F8D62B06239D9CCC00B1AEB9 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B04239D9CCC00B1AEB9 /* CommitTableViewCell.swift */; };
 		F8D62B07239D9CCC00B1AEB9 /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D62B05239D9CCC00B1AEB9 /* CommitTableViewCell.xib */; };
 		F8D62B0A239DB11F00B1AEB9 /* commitsData.json in Resources */ = {isa = PBXBuildFile; fileRef = F8D62B09239DB11F00B1AEB9 /* commitsData.json */; };
+		F8D62B0D239EFAB200B1AEB9 /* Commiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B0C239EFAB200B1AEB9 /* Commiter.swift */; };
+		F8D62B0F239EFB1B00B1AEB9 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B0E239EFB1B00B1AEB9 /* Author.swift */; };
+		F8D62B11239F009700B1AEB9 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B10239F009700B1AEB9 /* ResponseData.swift */; };
 		F8E49336239C439E00B07995 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E49335239C439E00B07995 /* AppDelegate.swift */; };
 		F8E49338239C439E00B07995 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E49337239C439E00B07995 /* SceneDelegate.swift */; };
 		F8E4933D239C439F00B07995 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E4933B239C439F00B07995 /* Main.storyboard */; };
@@ -29,6 +32,9 @@
 		F8D62B04239D9CCC00B1AEB9 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
 		F8D62B05239D9CCC00B1AEB9 /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
 		F8D62B09239DB11F00B1AEB9 /* commitsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commitsData.json; sourceTree = "<group>"; };
+		F8D62B0C239EFAB200B1AEB9 /* Commiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commiter.swift; sourceTree = "<group>"; };
+		F8D62B0E239EFB1B00B1AEB9 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		F8D62B10239F009700B1AEB9 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		F8E49332239C439E00B07995 /* GM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8E49335239C439E00B07995 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8E49337239C439E00B07995 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +61,6 @@
 				F88BD17F239D952A0063DF06 /* CommitsTableViewController.swift */,
 				F8D62AFD239D971900B1AEB9 /* Interactor.swift */,
 				F8D62AFF239D973F00B1AEB9 /* Presenter.swift */,
-				F8D62B01239D9AB300B1AEB9 /* Commit.swift */,
 				F8D62B04239D9CCC00B1AEB9 /* CommitTableViewCell.swift */,
 				F8D62B05239D9CCC00B1AEB9 /* CommitTableViewCell.xib */,
 			);
@@ -68,6 +73,17 @@
 				F8D62B09239DB11F00B1AEB9 /* commitsData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8D62B0B239EFA8400B1AEB9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F8D62B10239F009700B1AEB9 /* ResponseData.swift */,
+				F8D62B01239D9AB300B1AEB9 /* Commit.swift */,
+				F8D62B0C239EFAB200B1AEB9 /* Commiter.swift */,
+				F8D62B0E239EFB1B00B1AEB9 /* Author.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		F8E49329239C439E00B07995 = {
@@ -90,6 +106,7 @@
 		F8E49334239C439E00B07995 /* GM */ = {
 			isa = PBXGroup;
 			children = (
+				F8D62B0B239EFA8400B1AEB9 /* model */,
 				F8D62B03239D9C1C00B1AEB9 /* Classes */,
 				F8E49335239C439E00B07995 /* AppDelegate.swift */,
 				F8E49337239C439E00B07995 /* SceneDelegate.swift */,
@@ -175,7 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D62B00239D973F00B1AEB9 /* Presenter.swift in Sources */,
+				F8D62B0D239EFAB200B1AEB9 /* Commiter.swift in Sources */,
 				F88BD180239D952A0063DF06 /* CommitsTableViewController.swift in Sources */,
+				F8D62B0F239EFB1B00B1AEB9 /* Author.swift in Sources */,
+				F8D62B11239F009700B1AEB9 /* ResponseData.swift in Sources */,
 				F8D62B02239D9AB300B1AEB9 /* Commit.swift in Sources */,
 				F8D62AFE239D971900B1AEB9 /* Interactor.swift in Sources */,
 				F8E49336239C439E00B07995 /* AppDelegate.swift in Sources */,

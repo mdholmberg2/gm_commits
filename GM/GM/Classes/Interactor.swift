@@ -9,30 +9,43 @@
 import Foundation
 
 class Interactor {
-    private var commits = [Commit]()
+    private var commits: [Commit]?
     
     func getCommits() {
-        self.commits.append(Commit(author: "John", hash: "kjhdsakjshd", message: "this is a commit(1)"))
-        self.commits.append(Commit(author: "Harry", hash: "sdfawewe", message: "this is a commit(2)"))
-        self.commits.append(Commit(author: "Shiela", hash: "afsdfs", message: "this is a commit(3)"))
-        self.commits.append(Commit(author: "Becky", hash: "sdfafsdfsdfsdf", message: "this is a commit(4)"))
         
-        print("commits... \(commits)")
+        commits = loadJson(filename: "commitsData")
+        if let commits = commits {
+            print("commits.... \(commits)")
+        } else { return }
+    }
+    
+    func loadJson(filename: String) -> [Commit]? {
+        if let url = Bundle.main.url(forResource: filename, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode(ResponseData.self, from: data)
+                return jsonData.commits
+            } catch {
+                fatalError("Couldn't load \(filename)")
+            }
+        }
+        return nil
     }
     
     func getNumberOfCommits() -> Int {
-        return self.commits.count
+        return self.commits!.count
     }
     
     func author(index: Int) -> String {
-        return self.commits[index].author
+        return self.commits![index].author.name
     }
     
     func hash(index: Int) -> String {
-        return self.commits[index].hash
+        return self.commits![index].sha
     }
     
     func message(index: Int) -> String {
-        return self.commits[index].message
+        return self.commits![index].message
     }
 }
