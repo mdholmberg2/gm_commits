@@ -9,5 +9,5 @@
 import Foundation
 
 struct ResponseData: Decodable {
-    var commits: [Commit]
+    var items: [Item]
 }

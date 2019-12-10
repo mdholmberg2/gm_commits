@@ -10,6 +10,5 @@ import Foundation
 
 struct Commit: Codable {
     var author: Author
-    var sha: String
     var message: String
 }

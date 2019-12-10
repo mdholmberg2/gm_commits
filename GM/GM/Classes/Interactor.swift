@@ -9,23 +9,24 @@
 import Foundation
 
 class Interactor {
-    private var commits: [Commit]?
+    private var commits: [Item]?
     
     func getCommits() {
         
         commits = loadJson(filename: "commitsData")
-        if let commits = commits {
-            print("commits.... \(commits)")
-        } else { return }
+                   
+        for i in 0..<getNumberOfCommits() {
+            print("commit: \(author(index: i)), \(hash(index: i)), \(message(index: i))")
+        }
     }
     
-    func loadJson(filename: String) -> [Commit]? {
+    func loadJson(filename: String) -> [Item]? {
         if let url = Bundle.main.url(forResource: filename, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 let jsonData = try decoder.decode(ResponseData.self, from: data)
-                return jsonData.commits
+                return jsonData.items
             } catch {
                 fatalError("Couldn't load \(filename)")
             }
@@ -38,7 +39,7 @@ class Interactor {
     }
     
     func author(index: Int) -> String {
-        return self.commits![index].author.name
+        return self.commits![index].commit.author.name
     }
     
     func hash(index: Int) -> String {
@@ -46,6 +47,6 @@ class Interactor {
     }
     
     func message(index: Int) -> String {
-        return self.commits![index].message
+        return self.commits![index].commit.message
     }
 }
