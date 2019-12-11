@@ -9,7 +9,11 @@
 import UIKit
 
 class CommitTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var committerLabel: UILabel!
+    @IBOutlet weak var shaLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
