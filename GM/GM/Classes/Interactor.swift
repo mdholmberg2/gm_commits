@@ -16,7 +16,7 @@ class Interactor {
         commits = loadJson(filename: "commitsData")
                    
         for i in 0..<getNumberOfCommits() {
-            print("commit: \(author(index: i)), \(hash(index: i)), \(message(index: i))")
+            print("commit: \(author(index: i)), \(sha(index: i)), \(message(index: i))")
         }
     }
     
@@ -42,7 +42,7 @@ class Interactor {
         return self.commits![index].commit.author.name
     }
     
-    func hash(index: Int) -> String {
+    func sha(index: Int) -> String {
         return self.commits![index].sha
     }
     

@@ -15,4 +15,20 @@ class Presenter {
         interactor.getCommits()
     }
     
+    func numberOfRows() -> Int {
+        return interactor.getNumberOfCommits()
+    }
+    
+    func author(row: Int) -> String {
+        return interactor.author(index: row)
+    }
+    
+    func sha(row: Int) -> String {
+        return interactor.sha(index: row)
+    }
+    
+    func message(row: Int) -> String {
+        return interactor.message(index: row)
+    }
+    
 }

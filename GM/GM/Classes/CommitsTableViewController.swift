@@ -22,20 +22,20 @@ class CommitsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        return presenter.numberOfRows()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommitTableViewCell") as? CommitTableViewCell
 
-        // Configure the cell...
+        cell?.committerLabel.text = presenter.author(row: indexPath.row)
+        cell?.shaLabel.text = presenter.sha(row: indexPath.row)
+        cell?.messageLabel.text = presenter.message(row: indexPath.row)
 
         return cell!
     }
