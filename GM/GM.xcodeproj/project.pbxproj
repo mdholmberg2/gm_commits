@@ -60,9 +60,9 @@
 		F8D62B03239D9C1C00B1AEB9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F88BD17F239D952A0063DF06 /* CommitsTableViewController.swift */,
 				F8D62AFD239D971900B1AEB9 /* Interactor.swift */,
 				F8D62AFF239D973F00B1AEB9 /* Presenter.swift */,
+				F88BD17F239D952A0063DF06 /* CommitsTableViewController.swift */,
 				F8D62B04239D9CCC00B1AEB9 /* CommitTableViewCell.swift */,
 				F8D62B05239D9CCC00B1AEB9 /* CommitTableViewCell.xib */,
 			);
