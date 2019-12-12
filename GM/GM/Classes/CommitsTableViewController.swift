@@ -44,7 +44,9 @@ class CommitsTableViewController: UITableViewController {
 
 extension CommitsTableViewController: CommitsResult {
     func shouldRefreshList() {
-        print("shouldRefreshList...")
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func shouldShowNetworkError(message: String) {
