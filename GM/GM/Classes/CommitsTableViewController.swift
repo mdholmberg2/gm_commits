@@ -46,6 +46,12 @@ class CommitsTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func refresh(_ sender: Any) {
+        print("refreshing....")
+    }
+    
 }
 
 extension CommitsTableViewController: CommitsResult {

@@ -29,7 +29,13 @@
                             <outlet property="delegate" destination="ooY-qh-olU" id="uX3-6h-57K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Commits" id="RIm-6i-WcN"/>
+                    <navigationItem key="navigationItem" title="Commits" id="RIm-6i-WcN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Jnz-9B-u39">
+                            <connections>
+                                <action selector="refresh:" destination="ooY-qh-olU" id="dSx-eB-1WQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmr-zl-mOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
