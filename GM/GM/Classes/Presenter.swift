@@ -8,11 +8,20 @@
 
 import Foundation
 
+protocol CommitsResult: class {
+    func shouldRefreshList()
+    func shouldShowNetworkError(message: String)
+}
+
 class Presenter {
     private let interactor = Interactor()
+    var delegate: CommitsResult? = nil
     
     init() {
+        self.interactor.delegate = self
+        
         interactor.getCommits()
+        interactor.loadCommits()
     }
     
     func numberOfRows() -> Int {
@@ -30,5 +39,12 @@ class Presenter {
     func message(row: Int) -> String {
         return interactor.message(index: row)
     }
-    
+}
+
+extension Presenter: ApiResult {
+    func didReceiveResponse() {
+        print("didReceiveResponse... ")
+        delegate?.shouldRefreshList()
+        delegate?.shouldShowNetworkError(message: "Fake error....")
+    }
 }

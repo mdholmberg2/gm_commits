@@ -15,6 +15,7 @@ class CommitsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.presenter.delegate = self
         let productCell = UINib(nibName: "CommitTableViewCell", bundle: nil)
         self.tableView.register(productCell, forCellReuseIdentifier: "CommitTableViewCell")
     }
@@ -39,8 +40,18 @@ class CommitsTableViewController: UITableViewController {
 
         return cell!
     }
-    
-
-    
-
 }
+
+extension CommitsTableViewController: CommitsResult {
+    func shouldRefreshList() {
+        print("shouldRefreshList...")
+    }
+    
+    func shouldShowNetworkError(message: String) {
+        print("shouldShowNetworkError... \(message)")
+    }
+    
+    
+}
+
+
