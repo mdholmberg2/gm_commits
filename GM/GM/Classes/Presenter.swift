@@ -20,7 +20,7 @@ class Presenter {
     init() {
         self.interactor.delegate = self
         
-        interactor.getCommits()
+        //interactor.getCommits()
         interactor.loadCommits()
     }
     

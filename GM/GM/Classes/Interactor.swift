@@ -34,25 +34,38 @@ class Interactor {
         request.addValue("application/vnd.github.cloak-preview", forHTTPHeaderField: "Accept")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+            guard let data = data, error == nil else {
                 print("error=\(error!)")
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response!)")
             }
             
-            //let responseString = String(data: data, encoding: .utf8)
             self.commits = self.loadResponse(data: data)
+            
+            
+            
+            for i in 0..<self.getNumberOfCommits() {
+                print("commit: \(self.author(index: i)), \(self.sha(index: i)), \(self.message(index: i))")
+            }
+            
+            
             self.delegate?.didReceiveResponse()
         }
         task.resume()
     }
     
     func loadResponse(data: Data) -> [Item]? {
-        return nil
+        do {
+            let decoder = JSONDecoder()
+            let jsonData = try decoder.decode(ResponseData.self, from: data)
+            return jsonData.items
+        } catch {
+            fatalError("Couldn't load response!")
+        }
     }
     
     func loadJson(filename: String) -> [Item]? {
@@ -70,7 +83,11 @@ class Interactor {
     }
     
     func getNumberOfCommits() -> Int {
-        return self.commits!.count
+        if let count = self.commits?.count {
+            return count
+        } else {
+            return 0
+        }
     }
     
     func author(index: Int) -> String {
