@@ -40,6 +40,12 @@ class CommitsTableViewController: UITableViewController {
 
         return cell!
     }
+    
+    func showErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension CommitsTableViewController: CommitsResult {
@@ -50,10 +56,10 @@ extension CommitsTableViewController: CommitsResult {
     }
     
     func shouldShowNetworkError(message: String) {
-        print("shouldShowNetworkError... \(message)")
+        DispatchQueue.main.async {
+            self.showErrorAlert(title: "Network Error", message: message)
+        }
     }
-    
-    
 }
 
 
