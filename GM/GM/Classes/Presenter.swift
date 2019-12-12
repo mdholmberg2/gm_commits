@@ -43,8 +43,10 @@ class Presenter {
 
 extension Presenter: ApiResult {
     func didReceiveResponse() {
-        print("didReceiveResponse... ")
         delegate?.shouldRefreshList()
-        delegate?.shouldShowNetworkError(message: "Fake error....")
+    }
+    
+    func didReceiveError(message: String) {
+        delegate?.shouldShowNetworkError(message: message)
     }
 }

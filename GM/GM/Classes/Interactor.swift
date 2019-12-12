@@ -10,6 +10,7 @@ import Foundation
 
 protocol ApiResult: class {
     func didReceiveResponse()
+    func didReceiveError(message: String)
 }
 
 class Interactor {
@@ -40,19 +41,11 @@ class Interactor {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response!)")
+                self.delegate?.didReceiveError(message: "HTTP Status Code: \(httpStatus.statusCode)")
+                return
             }
             
             self.commits = self.loadResponse(data: data)
-            
-            
-            
-            for i in 0..<self.getNumberOfCommits() {
-                print("commit: \(self.author(index: i)), \(self.sha(index: i)), \(self.message(index: i))")
-            }
-            
-            
             self.delegate?.didReceiveResponse()
         }
         task.resume()
