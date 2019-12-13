@@ -48,6 +48,16 @@ class CommitsTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func showLoadedMessage() {
+        let alertMessage = "\(self.presenter.numberOfRows()) commits loaded..."
+        let alert = UIAlertController(title: "Commits Loaded", message: alertMessage, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+
+        let timeToShow = DispatchTime.now() + 3
+            DispatchQueue.main.asyncAfter(deadline: timeToShow) {
+                alert.dismiss(animated: true, completion: nil)
+            }
+    }
     
     @IBAction func refresh(_ sender: Any) {
         presenter.refreshUI()
@@ -59,6 +69,7 @@ extension CommitsTableViewController: CommitsResult {
     func shouldRefreshList() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.showLoadedMessage()
         }
     }
     
