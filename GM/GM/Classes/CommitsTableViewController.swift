@@ -49,7 +49,7 @@ class CommitsTableViewController: UITableViewController {
     
     
     @IBAction func refresh(_ sender: Any) {
-        print("refreshing....")
+        presenter.refreshUI()
     }
     
 }

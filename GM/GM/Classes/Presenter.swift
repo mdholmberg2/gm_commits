@@ -19,8 +19,10 @@ class Presenter {
     
     init() {
         self.interactor.delegate = self
-        
-        //interactor.getCommits()
+        refreshUI()
+    }
+    
+    func refreshUI() {
         interactor.loadCommits()
     }
     
