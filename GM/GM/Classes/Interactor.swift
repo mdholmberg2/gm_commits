@@ -11,6 +11,7 @@ import Foundation
 protocol ApiResult: class {
     func didReceiveResponse()
     func didReceiveError(message: String)
+    func didRestCommits()
 }
 
 class Interactor {
@@ -76,6 +77,11 @@ class Interactor {
             }
         }
         return nil
+    }
+    
+    func resetCommits() {
+        self.commits?.removeAll()
+        self.delegate?.didRestCommits()
     }
     
     func getNumberOfCommits() -> Int {

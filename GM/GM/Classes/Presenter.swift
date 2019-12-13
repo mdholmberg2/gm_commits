@@ -10,6 +10,7 @@ import Foundation
 
 protocol CommitsResult: class {
     func shouldRefreshList()
+    func shouldResetList()
     func shouldShowNetworkError(message: String)
 }
 
@@ -20,6 +21,10 @@ class Presenter {
     init() {
         self.interactor.delegate = self
         refreshUI()
+    }
+    
+    func resetUI() {
+        interactor.resetCommits()
     }
     
     func refreshUI() {
@@ -50,5 +55,9 @@ extension Presenter: ApiResult {
     
     func didReceiveError(message: String) {
         delegate?.shouldShowNetworkError(message: message)
+    }
+    
+    func didRestCommits() {
+        delegate?.shouldResetList()
     }
 }

@@ -16,6 +16,7 @@ class CommitsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.activityIndicator.startAnimating()
         self.presenter.delegate = self
         let productCell = UINib(nibName: "CommitTableViewCell", bundle: nil)
         self.tableView.register(productCell, forCellReuseIdentifier: "CommitTableViewCell")
@@ -60,6 +61,8 @@ class CommitsTableViewController: UITableViewController {
     }
     
     @IBAction func refresh(_ sender: Any) {
+        self.activityIndicator.startAnimating()
+        presenter.resetUI();
         presenter.refreshUI()
     }
     
@@ -69,6 +72,7 @@ extension CommitsTableViewController: CommitsResult {
     func shouldRefreshList() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
             self.showLoadedMessage()
         }
     }
@@ -77,6 +81,11 @@ extension CommitsTableViewController: CommitsResult {
         DispatchQueue.main.async {
             self.showErrorAlert(title: "Network Error", message: message)
         }
+    }
+    
+    func shouldResetList() {
+        self.tableView.reloadData()
+        self.activityIndicator.stopAnimating()
     }
 }
 
