@@ -10,6 +10,7 @@ import UIKit
 
 class CommitsTableViewController: UITableViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let presenter = Presenter()
 
     override func viewDidLoad() {
