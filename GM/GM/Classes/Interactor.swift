@@ -46,6 +46,9 @@ class Interactor {
             }
             
             self.commits = self.loadResponse(data: data)
+            self.commits?.sort(by: {
+                $0.commit.author.date > $1.commit.author.date
+            })
             self.delegate?.didReceiveResponse()
         }
         task.resume()
