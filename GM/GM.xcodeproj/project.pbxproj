@@ -13,7 +13,6 @@
 		F8D62B02239D9AB300B1AEB9 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B01239D9AB300B1AEB9 /* Commit.swift */; };
 		F8D62B06239D9CCC00B1AEB9 /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B04239D9CCC00B1AEB9 /* CommitTableViewCell.swift */; };
 		F8D62B07239D9CCC00B1AEB9 /* CommitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D62B05239D9CCC00B1AEB9 /* CommitTableViewCell.xib */; };
-		F8D62B0A239DB11F00B1AEB9 /* commitsData.json in Resources */ = {isa = PBXBuildFile; fileRef = F8D62B09239DB11F00B1AEB9 /* commitsData.json */; };
 		F8D62B0D239EFAB200B1AEB9 /* Commiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B0C239EFAB200B1AEB9 /* Commiter.swift */; };
 		F8D62B0F239EFB1B00B1AEB9 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B0E239EFB1B00B1AEB9 /* Author.swift */; };
 		F8D62B11239F009700B1AEB9 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D62B10239F009700B1AEB9 /* ResponseData.swift */; };
@@ -32,7 +31,6 @@
 		F8D62B01239D9AB300B1AEB9 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		F8D62B04239D9CCC00B1AEB9 /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
 		F8D62B05239D9CCC00B1AEB9 /* CommitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitTableViewCell.xib; sourceTree = "<group>"; };
-		F8D62B09239DB11F00B1AEB9 /* commitsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commitsData.json; sourceTree = "<group>"; };
 		F8D62B0C239EFAB200B1AEB9 /* Commiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commiter.swift; sourceTree = "<group>"; };
 		F8D62B0E239EFB1B00B1AEB9 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		F8D62B10239F009700B1AEB9 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
@@ -69,14 +67,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		F8D62B08239DB0B500B1AEB9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F8D62B09239DB11F00B1AEB9 /* commitsData.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		F8D62B0B239EFA8400B1AEB9 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				F8E49334239C439E00B07995 /* GM */,
-				F8D62B08239DB0B500B1AEB9 /* Resources */,
 				F8E49333239C439E00B07995 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -183,7 +172,6 @@
 				F8E49342239C43A300B07995 /* LaunchScreen.storyboard in Resources */,
 				F8E4933F239C43A300B07995 /* Assets.xcassets in Resources */,
 				F8E4933D239C439F00B07995 /* Main.storyboard in Resources */,
-				F8D62B0A239DB11F00B1AEB9 /* commitsData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

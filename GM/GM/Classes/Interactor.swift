@@ -20,15 +20,6 @@ class Interactor {
     
     var delegate: ApiResult? = nil
     
-    func getCommits() {
-        
-        commits = loadJson(filename: "commitsData")
-                   
-        for i in 0..<getNumberOfCommits() {
-            print("commit: \(author(index: i)), \(sha(index: i)), \(message(index: i))")
-        }
-    }
-    
     func loadCommits() {
         var request = URLRequest(url: URL(string: url)!)
         
@@ -63,20 +54,6 @@ class Interactor {
         } catch {
             fatalError("Couldn't load response!")
         }
-    }
-    
-    func loadJson(filename: String) -> [Item]? {
-        if let url = Bundle.main.url(forResource: filename, withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(ResponseData.self, from: data)
-                return jsonData.items
-            } catch {
-                fatalError("Couldn't load \(filename)")
-            }
-        }
-        return nil
     }
     
     func resetCommits() {
